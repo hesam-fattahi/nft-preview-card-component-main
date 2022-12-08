@@ -1,0 +1,131 @@
+$color-blue--soft: hsl(215, 51%, 70%);
+$color-cyan: hsl(178, 100%, 50%);
+
+$color-bg--card: hsl(216, 50%, 16%);
+$color-bg--main: hsl(217, 54%, 11%);
+$color-line: hsl(215, 32%, 27%);
+
+$color-white: hsl(0, 0%, 100%);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+
+  @media (max-width: 25em) {
+    font-size: 56.25%;
+  }
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  background-color: $color-bg--main;
+  color: $color-blue--soft;
+  height: 100vh;
+  padding: 2rem;
+  display: grid;
+  place-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: $color-white;
+  transition: 0.3s ease-out;
+
+  &:hover,
+  &:active {
+    color: $color-cyan;
+  }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  &--sb {
+    justify-content: space-between;
+  }
+}
+
+.card {
+  max-width: 36rem;
+  padding: 2.4rem;
+  border-radius: 1.6rem;
+  background-color: $color-bg--card;
+  box-shadow: 0 0.5rem 2rem rgba(#000, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 2.1rem;
+
+  &__img {
+    width: 100%;
+    max-height: 30.5rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+    }
+    &-overlay {
+      opacity: 0;
+      background: rgba($color-cyan, 0.5);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      display: grid;
+      place-items: center;
+      transition: 0.3s ease-out;
+
+      img {
+        width: 4rem;
+      }
+    }
+    &:hover &-overlay {
+      opacity: 1;
+    }
+  }
+
+  &__title {
+    font-size: 2.4rem;
+  }
+
+  &__price,
+  &__time {
+    font-size: 1.6rem;
+    font-weight: 400;
+    gap: 0.6rem;
+  }
+
+  &__price p {
+    color: $color-cyan;
+    font-weight: 600;
+  }
+
+  &__creator {
+    font-size: 1.6rem;
+    font-weight: 400;
+    gap: 1.4rem;
+    img {
+      width: 3.5rem;
+      height: 3.5rem;
+      border: 1px solid $color-white;
+      border-radius: 50%;
+    }
+  }
+}
+
+hr {
+  background-color: $color-line;
+  border: none;
+  height: 1px;
+}
